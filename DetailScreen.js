@@ -16,6 +16,14 @@ import {
 
 export default class DetailScreen extends Component {
       
+    // Used for styling the navigator
+    static navigatorStyle = {
+      navBarButtonColor: '#ffffff',
+      navBarTextColor: '#ffffff',
+      navBarBackgroundColor: '#ff0000',
+      navBarHideOnScroll: true,
+    };
+
   render() {
     return (
         <View></View>
@@ -24,24 +32,5 @@ export default class DetailScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  content_tab:{
-    backgroundColor: 'lightgray',
-    borderWidth: 2,
-    borderColor: '#F5FCFF',
-    borderRadius: 5,
-  },
-  content_tab_button:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 10,
-  },
-  content_tab_text:{
-    marginTop: 1,
-    marginBottom: 3,
-    fontSize: 12,
-  },
-  content_item:{
-    flexDirection: 'row',
-    height: 50,
-  }
+
 });
