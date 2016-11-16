@@ -53,8 +53,10 @@ export default class ListViewScreen extends Component{
         this.petObject = this.database.ref('Pet');
         
         this.state = {
+            loadingSource: 0,
             searchKey: '',
             sort: null,
+            dataSource_array: [],
             dataSource: dataSource.cloneWithRowsAndSections({}),
             modifiedDataSource: modifiedDataSource.cloneWithRowsAndSections({})
         };
@@ -69,18 +71,42 @@ export default class ListViewScreen extends Component{
     // For testing purpose only!
     initialiseDB(){
         this.petObject.set([
-        {firstName:'Tom',lastName:'JustTom',petName:'Jerry',petType:'Dog'},{firstName:'Tim',lastName:'Drake',petName:'Boi',petType:'Cat'},
-        {firstName:'John',lastName:'Smith',petName:'Meat',petType:'Cat'}
+        {firstName:'Tom',lastName:'JustTom',petID:1,petName:'Jerry',petType:'Mouse',petActive:true},{firstName:'Tim',lastName:'Drake',petID:2,petName:'Boi',petType:'Rabbit',petActive:true},
+        {firstName:'John',lastName:'Smith',petID:3,petName:'Meat',petType:'Cat',petActive:true},{firstName:'Bruce',lastName:'Wayne',petID:4,petName:'Dick',petType:'Bird',petActive:false},
+        {firstName:'Shaggy',lastName:'JustShaggy',petID:5,petName:'Scoop',petType:'Dog',petActive:true},{firstName:'Shade',lastName:'Blue',petID:6,petName:'Donut',petType:'Others',petActive:false}
         ]);
     }
     
     // Listening for data change, and return data whenever there is change
     listeningDataSourceDB(){
-        this.petObject.on('value', (snapshot) => {
-            this.setState({dataSource: this.state.dataSource.cloneWithRowsAndSections(this.convertArraytoMap(snapshot.val() || []))});
+        
+        let temp_array = [];
+        this.petObject.orderByChild('firstName').on('value', (snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+                if (childSnapshot.val().petActive){
+                    temp_array.push(childSnapshot.val());
+                }
+            });
+        this.setState({dataSource_array: temp_array || [],
+        dataSource: this.state.dataSource.cloneWithRowsAndSections(this.convertArraytoMap(temp_array || [])),
+        loadingSource: 1});
         });
     }
     
+    // Filter engine. It filters firstName, lastName, petName and petID
+    searchDataSourceDB(searchKey){
+        let temp_array = [];
+        this.state.dataSource_array.forEach((item) => {
+            if (item.firstName.toLowerCase().indexOf(searchKey.toLowerCase()) != -1 ||
+                 item.lastName.toLowerCase().indexOf(searchKey.toLowerCase()) != -1 ||
+                 item.petName.toLowerCase().indexOf(searchKey.toLowerCase()) != -1  ||
+                 JSON.stringify(item.petID).indexOf(searchKey) != -1){
+                temp_array.push(item);
+            }
+        });
+        this.setState({modifiedDataSource: this.state.modifiedDataSource.cloneWithRowsAndSections(this.convertArraytoMap(temp_array || []))});
+        console.log(temp_array);
+    }
     
     // Magically convert array into map
     convertArraytoMap(array){
@@ -96,15 +122,34 @@ export default class ListViewScreen extends Component{
     }
     
     // Determine whether the page is empty or not, and display the proper components
-    sourceChecker(dataSource) {
+    sourceChecker() {
+        let dataSource = '';
+        
+        if (this.state.searchKey != ''){
+            dataSource = this.state.modifiedDataSource;
+            // console.log('Modified source displayed');
+        }
+        else {
+            dataSource = this.state.dataSource;
+            // console.log('Original source displayed');
+        }
+        
+        let rowCount = dataSource.getRowCount();
         // Display the message below
-        if(dataSource.getRowCount()==0){
-            return <View style={{height: 50,justifyContent: 'center',alignItems: 'center'}}><Text>Your list is empty right now. Try adding a new pet!</Text></View>
-         
+        if (this.state.loadingSource == 0){
+            return <View style={styles.content_message_box}><Text>Fetching data{"\n"}{"\n"}</Text>
+            <Image style={{width:30,height:30}} source={require('./img/ajax-loader.gif')}/>
+            <Text>{"\n"}Please wait ...</Text></View>
+        }
+        else if (rowCount == 0&& this.state.searchKey == '') {
+            return <View style={styles.content_message_box}><Text>Your list is empty right now. Try adding a new pet!</Text></View>
+        }
+        else if(rowCount == 0 && this.state.searchKey != '') {
+            return <View style={styles.content_message_box}><Text>No record has been found.</Text><Text>Try searching using different term!</Text></View>
         }
         // Display ListView of data
         else {
-            return <View><ListView
+            return <View style={{flex: 10}}><ListView
                     dataSource={dataSource}
                     enableEmptySections={true}
                     renderRow={(rowData) =>
@@ -115,9 +160,10 @@ export default class ListViewScreen extends Component{
                                   {this.iconSelector(rowData.petType)}
                               </View>
                               {/** Text column */}
-                              <View style={{flex:10, padding: 10}}>
-                                <Text>{rowData.firstName} {rowData.lastName}</Text>
-                                <Text>      Pet name: {rowData.petName}</Text>
+                              <View style={{flex:10, paddingHorizontal: 10}}>
+                                <Text style={{fontSize: 12}}>HN: {rowData.petID}</Text>
+                                <Text style={{fontSize: 12}}>Owner name: {rowData.firstName} {rowData.lastName}</Text>
+                                <Text style={{fontSize: 12}}>      Pet name: {rowData.petName}</Text>
                               </View>
                               {/** Arrow column */}
                               <View style={{flex:1, justifyContent:'center'}}>
@@ -126,11 +172,11 @@ export default class ListViewScreen extends Component{
                           </View>
                         </TouchableOpacity>
                     }
-                    renderSectionHeader={(sectionData,firstName) => 
+                    renderSectionHeader={(sectionData,sectionID) => 
                         <View style={styles.content_tab}>
                         {/** Section name. Divide the rows based on first character of user's name */}
                         <View style={styles.content_tab_button}>
-                        <Text style={styles.content_tab_text}> • {firstName.charAt(0)} </Text>
+                        <Text style={styles.content_tab_text}> • {sectionID.charAt(0)} </Text>
                         {/** <Text style={styles.content_tab_text}> Hide </Text> */}
                         </View>
                         </View>
@@ -139,7 +185,7 @@ export default class ListViewScreen extends Component{
                       <View key={rowID} style={{height:1, backgroundColor: 'lightgray'}}/>
                     }
                     />
-                <View key='end-list' style={{height:1, backgroundColor: 'lightgray'}}/>
+                
                 </View>
                 
         }
@@ -176,10 +222,12 @@ export default class ListViewScreen extends Component{
     // -------------------------
     componentDidMount(){
         this.listeningDataSourceDB();
+        //this.setState({loadingSource: 0});
     }
 
     shouldComponentUpdate(nextProps, nextState){
-        if (nextState.dataSource == this.state.dataSource){
+        if (nextState.dataSource == this.state.dataSource
+        && nextState.modifiedDataSource == this.state.modifiedDataSource){
             return false;
         }
         return true;
@@ -197,21 +245,23 @@ export default class ListViewScreen extends Component{
     } */
     
     return (
-        <View style={{marginTop: 5}}>
+        <View style={{marginTop: 5, marginBottom: 50, flex: 1, justifyContent: 'space-between'}}>
             {/** Render search bar */}
-            <View style={{flexDirection: 'row', alignItems: 'center', height: 40}}>
+            <View style={{flexDirection: 'row', alignItems: 'center', flex:1}}>
                 <View style={{flex: 12}}>
-                    <TextInput style={styles.textInput} onChangeText={(text) => this.setState({searchKey: text})}
-                    value={this.state.searchKey} placeholder='Search' underlineColorAndroid='#ff0000'/>{/** Android exclusive */}
+                    <TextInput style={styles.textInput} onChangeText={(text) => {this.setState({searchKey: text}); this.searchDataSourceDB(this.state.searchKey)}}
+                     placeholder='Search' underlineColorAndroid='#ff0000'/>{/** Android exclusive */}
                 </View>
-                <View style={{flex: 1}}>
+                {/** Temporarily set flex:2 for testing*/}
+                <View style={{flex: 2, flexDirection: 'row'}}>
                     {/** Temporary used for initialising starter data in firebase */}
-                    <TouchableOpacity onPress={() => this.initialiseDB()}><Image style={{width:20,height:20}} source={require('./img/search.png')}/></TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.searchDataSourceDB(this.state.searchKey)}><Image style={{width:20,height:20}} source={require('./img/search.png')}/></TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.initialiseDB()}><Image style={{width:20,height:20}} source={require('./img/test.png')}/></TouchableOpacity>
                 </View>
             </View>
             {/** Render item list or empty message */}
-            {this.sourceChecker(this.state.dataSource)}
-            <View style={{marginTop: 5}}>
+            {this.sourceChecker()}
+            <View style={{marginTop: 5, flex:2}}>
                 <TouchableOpacity onPress={()=> this.props.navigator.push({screen: 'main.AddScreen', title: 'Add Pet'})}>
                     <View style={styles.content_item_add}>
                         {/** Icon column */}
@@ -267,5 +317,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'red',
     borderRadius: 5,
+  },
+  content_message_box:{
+    flex: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
