@@ -134,7 +134,24 @@ export default class ArchiveScreen extends Component {
                     dataSource={dataSource}
                     enableEmptySections={true}
                     renderRow={(rowData) =>
-                          <TouchableOpacity onPress={()=> this.props.navigator.push({screen: 'main.DetailScreen', title: 'Detail Screen: '+rowData.petName, passProps:{petPointer: rowData.petPointer}})}>
+                          <TouchableOpacity onPress={()=> this.props.navigator.push({screen: 'main.DetailScreen', title: 'Pet Details',
+                          passProps:{
+                              petID: rowData.petID,
+                              petName: rowData.petName,
+                              petType: rowData.petType,
+                              petGender: rowData.petGender,
+                              petDOB: rowData.petDOB,
+                              petOtherString: rowData.petOtherString,
+                              petDateIn: rowData.petDateIn,
+                              petTimeIn: rowData.petTimeIn,
+                              petDateOut: rowData.petDateOut,
+                              petTimeOut: rowData.petTimeOut,
+                              firstName: rowData.firstName,
+                              lastName: rowData.lastName,
+                              email: rowData.email,
+                              tel: rowData.tel,
+                              address: rowData.address
+                              }})}>
                           <View style={styles.content_item}>
                               {/** Icon column */}
                               <View style={{flex:3,justifyContent:'center',alignItems:'center'}}>

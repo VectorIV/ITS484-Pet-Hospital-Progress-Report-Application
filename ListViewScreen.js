@@ -71,9 +71,12 @@ export default class ListViewScreen extends Component{
     // For testing purpose only!
     initialiseDB(){
         this.petObject.set([
-        {firstName:'Tom',lastName:'JustTom',petID:1,petName:'Jerry',petType:'Mouse',petActive:true},{firstName:'Tim',lastName:'Drake',petID:2,petName:'Boi',petType:'Rabbit',petActive:true},
-        {firstName:'John',lastName:'Smith',petID:3,petName:'Meat',petType:'Cat',petActive:true},{firstName:'Bruce',lastName:'Wayne',petID:4,petName:'Dick',petType:'Bird',petActive:false},
-        {firstName:'Shaggy',lastName:'JustShaggy',petID:5,petName:'Scoop',petType:'Dog',petActive:true},{firstName:'Shade',lastName:'Blue',petID:6,petName:'Donut',petType:'Others',petActive:false}
+        {firstName:'Tom',lastName:'JustTom',address:"House",email:'justtom@mail.com',tel:'0898968996',petID:1,petName:'Jerry',petType:'Mouse',petGender:'Male',petDateIn:'11/11/2016',petTimeIn:'12:00:00',petActive:true},
+        {firstName:'Tim',lastName:'Drake',address:"Wanye's Manor",email:'robin@mail.com',tel:'0891111111',petID:2,petName:'Boi',petType:'Rabbit',petGender:'Male',petDOB:'01/02/2016',petDateIn:'11/11/2016',petTimeIn:'12:00:00',petDateOut:'12/11/2016',petTimeOut:'13:11:56',petActive:true},
+        {firstName:'John',lastName:'Smith',address:"Smith's",email:'smith@mail.com',tel:'0892222222',petID:3,petName:'Meat',petType:'Cat',petGender:'Male',petDOB:'01/03/2016',petActive:true},
+        {firstName:'Bruce',lastName:'Wayne',address:"Wanye's Manor",email:'notbatman@mail.com',tel:'0893333333',petID:4,petName:'Dick',petType:'Bird',petGender:'Male',petDOB:'01/04/2016',petActive:false},
+        {firstName:'Shaggy',lastName:'JustShaggy',address:"Scoopy's",email:'scoop@mail.com',tel:'0894444444',petID:5,petName:'Scoop',petType:'Dog',petGender:'Male',petDOB:'01/05/2016',petActive:true},
+        {firstName:'Shade',lastName:'Blue',address:"Donut's",email:'donut@mail.com',tel:'0895555555',petID:6,petName:'Donut',petType:'Others',petOtherString:'Tiger',petGender:'Male',petDOB:'01/06/2016',petActive:false}
         ]);
     }
     
@@ -153,7 +156,24 @@ export default class ListViewScreen extends Component{
                     dataSource={dataSource}
                     enableEmptySections={true}
                     renderRow={(rowData) =>
-                          <TouchableOpacity onPress={()=> this.props.navigator.push({screen: 'main.DetailScreen', title: 'Detail Screen: '+rowData.petName, passProps:{petPointer: rowData.petPointer}})}>
+                          <TouchableOpacity onPress={()=> this.props.navigator.push({screen: 'main.DetailScreen', title: 'Pet Details',
+                          passProps:{
+                              petID: rowData.petID,
+                              petName: rowData.petName,
+                              petType: rowData.petType,
+                              petGender: rowData.petGender,
+                              petDOB: rowData.petDOB,
+                              petOtherString: rowData.petOtherString,
+                              petDateIn: rowData.petDateIn,
+                              petTimeIn: rowData.petTimeIn,
+                              petDateOut: rowData.petDateOut,
+                              petTimeOut: rowData.petTimeOut,
+                              firstName: rowData.firstName,
+                              lastName: rowData.lastName,
+                              email: rowData.email,
+                              tel: rowData.tel,
+                              address: rowData.address
+                              }})}>
                           <View style={styles.content_item}>
                               {/** Icon column */}
                               <View style={{flex:3,justifyContent:'center',alignItems:'center'}}>
@@ -194,22 +214,22 @@ export default class ListViewScreen extends Component{
     // Determine the pet icon
     iconSelector(type) {
         if (type == 'Dog'){
-            return  <Image style={{width:40,height:40}} source={require('./img/dog.png')}/>
+            return  <Image style={styles.imageIcon} source={require('./img/dog.png')}/>
         }
         else if (type == 'Cat'){
-           return  <Image style={{width:40,height:40}} source={require('./img/cat.png')}/>
+           return  <Image style={styles.imageIcon} source={require('./img/cat.png')}/>
         }
         else if (type == 'Rabbit'){
-           return  <Image style={{width:40,height:40}} source={require('./img/rabbit.png')}/>
+           return  <Image style={styles.imageIcon} source={require('./img/rabbit.png')}/>
         }
         else if (type == 'Bird'){
-           return  <Image style={{width:40,height:40}} source={require('./img/bird.png')}/>
+           return  <Image style={styles.imageIcon} source={require('./img/bird.png')}/>
         }
         else if (type == 'Mouse'){
-           return  <Image style={{width:40,height:40}} source={require('./img/mouse.png')}/>
+           return  <Image style={styles.imageIcon} source={require('./img/mouse.png')}/>
         }
         else{
-           return  <Image style={{width:40,height:40}} source={require('./img/pet.png')}/>
+           return  <Image style={styles.imageIcon} source={require('./img/pet.png')}/>
         }
     }
     // -------------------------
@@ -322,5 +342,9 @@ const styles = StyleSheet.create({
     flex: 10,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  imageIcon:{
+    width: 40,
+    height: 40,
   }
 });

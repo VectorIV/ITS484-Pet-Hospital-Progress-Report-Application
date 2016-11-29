@@ -2,172 +2,11 @@
 <items version="2" >
 
     <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.6.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="673d77a5bbddd766037f088e775df525c46407f0">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-fbc527b38bf774bd7b1a18b62fe6162088b7a3e8.jar" />
-    </item>
-    <item
-        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.2.3\1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14\jackson-core-2.2.3.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\jackson-core-2.2.3-073f1467e620ee79bd9d8992bf6984e42befe704.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.11.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-db6e4b1870c795037e9f32129695d15270b50bb3.jar" />
-    </item>
-    <item
-        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-urlconnection\3.4.1\63994437f62bc861bc20c605d12962f7246116d1\okhttp-urlconnection-3.4.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="63994437f62bc861bc20c605d12962f7246116d1">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\okhttp-urlconnection-3.4.1-b0eadee3036951daddb54b38916b7983eb3c4c53.jar" />
-    </item>
-    <item
-        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\okio-1.9.0-f36c478ba1727cd927128bb42f6501c2820910df.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.37.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="731e2c3a475cd3a3cb3536d6c32e72e1ad2ed09e">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-b7fe6e046127452ce9ad5896b00a61442948b068.jar" />
-    </item>
-    <item
-        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\javax.inject-1-c0baad1480731c2b647f2de865503e1e1e89b661.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\Vitality\realm\unspecified\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="0942f0b9e2d00478d1ac58515fc7fa693277ce5d">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-2c1021573e3959de0abd5ded16c01e98ce907128.jar" />
-    </item>
-    <item
-        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\org.nanohttpd\nanohttpd\2.2.0\73a02117620b6cc7683a1ed6ae24c2f36e2a715\nanohttpd-2.2.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="073a02117620b6cc7683a1ed6ae24c2f36e2a715">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\nanohttpd-2.2.0-36c2b4ef51fcfbd0cf67ffb0ce449412548fd816.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-0d52006c28ca95d6cff543d1e688aa7ff5e5c523.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\0.11.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="ca63c521b5745ae9a09629d7ca67ff6bc2a967fe">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-c0c33b468400ae7de2dd4b4036e7c46ba5ef502d.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.37.0\jars\libs\infer-annotations-1.5.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="6682334d34f00764e6753efcd15f060a4b95cda6">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\infer-annotations-1.5-bcc22e2036fcdfd4d1e8f2cbac58db233266a57b.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.11.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="98786c1770b531b9194fb6448b2a2692c64074b6">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-85028229db89a44dde205060001529d26389b15b.jar" />
-    </item>
-    <item
-        jar="D:\Android\SDK\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\support-annotations-23.2.1-e874e948357ca5f1ff250e4369018f54b94dbcd4.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.11.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-ea85589a4254a6c445b911c4a2acc06f4c11b0ad.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-5a547b371316701ad2c074c648d673a83dba9507.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\0.11.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="3341b66c54367e777a0647e2db96c045329bfeab">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-91bfe9e5ecb5f80cd3289ddc59913f683b2452e3.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\internal_impl-23.2.1-d8df36653c1f0dfb58c35ab50c7b1d603a78baff.jar" />
-    </item>
-    <item
-        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0-7804ee49155e97815ca96b49dcafbdffaf4a96c7.jar" />
-    </item>
-    <item
-        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.0\5871fb60dc68d67da54a663c3fd636a10a532948\jsr305-3.0.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\jsr305-3.0.0-0ebe371c688a10dbb5040f92b6239dc6553757f6.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-d7e970656bed9aa98d2ccaad589b22533c3a78b9.jar" />
-    </item>
-    <item
-        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\okhttp-3.4.1-ba4896a9abe65991612daa0e4d9c20d576a13674.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.soloader\soloader\0.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-cd76e93167588484752be22027351f1f77991fe6.jar" />
-    </item>
-    <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-okhttp3\0.11.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="2b8a01ad9da5d26d0067894c22e87597bca2c500">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-64a2f74df69947cad094c77f983ea955d1179480.jar" />
+        sha1="a9f41e6463de88c3f979d796382fc24fb7e9cd41">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-1c07902ee42bc342d2753aed5963c1be4b3613f2.jar" />
     </item>
     <item
         jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-ws\3.4.1\8ace66ef7002d98f633377c9e67daeeb196d8c3b\okhttp-ws-3.4.1.jar"
@@ -177,18 +16,74 @@
         <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\okhttp-ws-3.4.1-2dac60db01eb8d94c1c089a7caa556ce6f5a7434.jar" />
     </item>
     <item
-        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-de9ecb4c76de4b3477d0216ef064548ee96f5422.jar" />
+        sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-b256f1940b8f105a35c7c191fb045f16cade50be.jar" />
     </item>
     <item
-        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\animated-base\0.12.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\library-2.4.0-6bc9de933af735f089c15e6cc4981bdd25394bf8.jar" />
+        sha1="7ba22785d529a9cd95f714ca782a59846a22ce02">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-19a493ec70879ab4a57673a81424b53605fe917e.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="580fa73d5bf63ffd04b9d66d0e75a2ed21842702">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-5a5f7f38aa8db06a517edd24a222ad2ab4eaf645.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a93aa431de60b775c91158433f3c687f1d32cb9c">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-092f0cc7988b65a58fcbf66170f343ded5b20e21.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5e651c1430cc9b8a3b3b5a9d92bb173214dfdf42">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-b69ef028d9df0badaec4c8dacac8fb148f3e3c13.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="bd11b3899f275668a9355f19cea2c2320f5f9d14">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-166d3e3a8b77033c75c58280572b394502b994d4.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d39f676be8400123523882d189a1d84040d34339">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-9c6b18070b22f73a8e8813599d5ada1d617e822e.jar" />
+    </item>
+    <item
+        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\javax.inject-1-c0baad1480731c2b647f2de865503e1e1e89b661.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="74d1712880eb2b4ab37ddf3c6a3232c883756726">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-d4fe6cb08285cd03f192695112050414df1552d8.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-ea85589a4254a6c445b911c4a2acc06f4c11b0ad.jar" />
     </item>
     <item
         jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.aurelhubert\ahbottomnavigation\1.2.3\jars\classes.jar"
@@ -198,11 +93,235 @@
         <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-4a4b3df97001d3b2f33f4c7dfc8b3a2ef2e26829.jar" />
     </item>
     <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.soloader\soloader\0.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-cd76e93167588484752be22027351f1f77991fe6.jar" />
+    </item>
+    <item
+        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.0\5871fb60dc68d67da54a663c3fd636a10a532948\jsr305-3.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\jsr305-3.0.0-0ebe371c688a10dbb5040f92b6239dc6553757f6.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-de9ecb4c76de4b3477d0216ef064548ee96f5422.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.37.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="731e2c3a475cd3a3cb3536d6c32e72e1ad2ed09e">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-b7fe6e046127452ce9ad5896b00a61442948b068.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\animated-gif\0.12.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="92e359c53b444598bf7973f1cbf31c8dc769e19f">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-a6bbb97a24811af6a1f8de04d2369a5c756e8546.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-9dd33e60ad8b3edd8367faf2f76e4b468ca01dce.jar" />
+    </item>
+    <item
         jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
         <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-0295d045858c59f17db60043ce438cfa6f4b9c4b.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="7a343e17f154f513a09c12946fae0f172be079ec">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-9d5ea4361598a15fae2329336e408d71a4f56f68.jar" />
+    </item>
+    <item
+        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\library-2.4.0-6bc9de933af735f089c15e6cc4981bdd25394bf8.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-okhttp3\0.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2b8a01ad9da5d26d0067894c22e87597bca2c500">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-64a2f74df69947cad094c77f983ea955d1179480.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\0.12.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c9a86e6bc8300fc00c191949ac61a2f7165e35c7">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-c3e789c8a95a3d39503c59d3376836a25a83eaff.jar" />
+    </item>
+    <item
+        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-urlconnection\3.4.1\63994437f62bc861bc20c605d12962f7246116d1\okhttp-urlconnection-3.4.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="63994437f62bc861bc20c605d12962f7246116d1">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\okhttp-urlconnection-3.4.1-b0eadee3036951daddb54b38916b7983eb3c4c53.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5243af50631020511cf2403789678149b1a319e6">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-e0a5cc23b003df8dcbeb57d8286874c5d23e54b5.jar" />
+    </item>
+    <item
+        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.2.3\1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14\jackson-core-2.2.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\jackson-core-2.2.3-073f1467e620ee79bd9d8992bf6984e42befe704.jar" />
+    </item>
+    <item
+        jar="D:\Android\SDK\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\support-annotations-24.0.0-c35da5f933849933eac177f147f2f8eb82e79d31.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0-ddb79168add76a63882d6ac006d05f66e920b983.jar" />
+    </item>
+    <item
+        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\okio-1.9.0-f36c478ba1727cd927128bb42f6501c2820910df.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-db6e4b1870c795037e9f32129695d15270b50bb3.jar" />
+    </item>
+    <item
+        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0-7804ee49155e97815ca96b49dcafbdffaf4a96c7.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-5b389b88647730d89df202624d4fbe6add9531c2.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-0d52006c28ca95d6cff543d1e688aa7ff5e5c523.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4a36600281a648769411ef642c331851732bf29e">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-4e0e9f568eb4100786240dd40bea573503fa21e6.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-fbc527b38bf774bd7b1a18b62fe6162088b7a3e8.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="db0a4170961a16af6d7a5222bf90a5876eea4227">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-d07d518d7aa934f9952357a37ed29fb75875779a.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f861fce2e9fa167e7fe8d8558cf2cbb910b9fb34">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-e12602a8067ba968d99944c81bf26c2ff8b4309a.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="de2c50f4a24277d22d675d598640da6d4622b14d">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-f10eb612110c3755352781c5544855a53c9921c1.jar" />
+    </item>
+    <item
+        jar="C:\Users\VectorIV\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\okhttp-3.4.1-ba4896a9abe65991612daa0e4d9c20d576a13674.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\Vitality\react-native-firestack\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3901bbc6c3136534270a07b6196668ad117e822f">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-5c48634299b22a599ad9e19dd2c5c1ef2abbe052.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.37.0\jars\libs\infer-annotations-1.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6682334d34f00764e6753efcd15f060a4b95cda6">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\infer-annotations-1.5-bcc22e2036fcdfd4d1e8f2cbac58db233266a57b.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-d7e970656bed9aa98d2ccaad589b22533c3a78b9.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\0.12.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="145da27a459a63ea0c4e318930365cf0a8b8e891">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-898cf0e64902f3aa12250ed1ab6bb615b65f5514.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-0abe85fb93b91b0cad91cdc731d16cc9632b43de.jar" />
+    </item>
+    <item
+        jar="E:\Vitality\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.12.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="40e5cb8708fc25fe57cb403cc82e9ef98376b648">
+        <dex dex="E:\Vitality\android\app\build\intermediates\pre-dexed\debug\classes-089c7dfa38dd104e89ff54a4241794ed987d35a3.jar" />
     </item>
     <item
         jar="E:\Vitality\android\app\build\intermediates\exploded-aar\Vitality\react-native-navigation\unspecified\libraryDebug\jars\classes.jar"

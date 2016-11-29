@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "866202889763",
+    "firebase_url": "https://vitality-pet-edition.firebaseio.com",
+    "project_id": "vitality-pet-edition",
+    "storage_bucket": "vitality-pet-edition.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866202889763:android:fdf59a62acdab013",
+        "android_client_info": {
+          "package_name": "com.vitality"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866202889763-ap2g09u3aa0t7uoj48skn5gaomfsci1e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTeVnDzA82WDl4foWpe-WDRrk9O31L-F4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
