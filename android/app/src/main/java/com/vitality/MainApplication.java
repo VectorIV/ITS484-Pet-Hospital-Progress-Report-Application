@@ -3,8 +3,6 @@ package com.vitality;
 import android.app.Application;
 import android.util.Log;
 
-import io.fullstack.firestack.FirestackPackage;
-
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -25,8 +23,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-          new FirestackPackage()
+          new MainReactPackage()
       );
     }
   };

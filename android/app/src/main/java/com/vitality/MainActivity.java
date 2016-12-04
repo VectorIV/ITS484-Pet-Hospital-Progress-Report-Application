@@ -10,4 +10,5 @@ public class MainActivity extends com.reactnativenavigation.activities.RootActiv
     protected String getMainComponentName() {
         return "Vitality";
     }
+
 }

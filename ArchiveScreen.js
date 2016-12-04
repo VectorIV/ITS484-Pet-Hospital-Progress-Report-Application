@@ -13,6 +13,7 @@ import {
   ListView,
   Image,
   TextInput,
+  AsyncStorage,
 } from 'react-native';
 
 import * as firebase from 'firebase';
@@ -27,6 +28,15 @@ export default class ArchiveScreen extends Component {
       navBarHideOnScroll: true,
     };
 
+    static navigatorButtons = {
+      rightButtons: [
+        {
+          icon: require('./img/refresh_inv.png'), // for a textual button, provide the button title (label)
+          id: 'refresh', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+        },
+      ]
+    };
+    
     constructor(props) {
         super(props);
         this.database = firebase.database();
@@ -39,16 +49,15 @@ export default class ArchiveScreen extends Component {
             rowHasChanged: (r1, r2) => r1 !== r2,
             sectionHeaderHasChanged: (s1, s2) => s1 !== s2});
             
-        // References to firebase
-        this.petObject = this.database.ref('Pet');
-        
         this.state = {
             loadingSource: 0,
             searchKey: '',
             sort: null,
             dataSource_array: [],
             dataSource: dataSource.cloneWithRowsAndSections({}),
-            modifiedDataSource: modifiedDataSource.cloneWithRowsAndSections({})
+            modifiedDataSource: modifiedDataSource.cloneWithRowsAndSections({}),
+            
+            userID: "Undefined",
         };
         
     }
@@ -58,20 +67,55 @@ export default class ArchiveScreen extends Component {
     // Methods Section
     // -------------------------
     
-    // Listening for data change, and return data whenever there is change
-    listeningDataSourceDB(){
-        
-        let temp_array = [];
-        this.petObject.orderByChild('firstName').on('value', (snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-                if (!childSnapshot.val().petActive){
-                    temp_array.push(childSnapshot.val());
-                }
-            });
+    dataSourceHandling(temp_array){
         this.setState({dataSource_array: temp_array || [],
         dataSource: this.state.dataSource.cloneWithRowsAndSections(this.convertArraytoMap(temp_array || [])),
         loadingSource: 1});
+    }
+    
+    // Listening for data change, and return data whenever there is change
+    listeningDataSourceDB(){
+
+        let temp_array = [];
+        this.dataSourceHandling(temp_array);
+
+        // Add any new children to the list
+        this.petObject.on('child_added', (snapshot, prevChildKey) => {
+                temp_array = this.state.dataSource_array;
+                if (!snapshot.val().petActive){
+                    temp_array.push(snapshot.val());
+                }
+                this.dataSourceHandling(temp_array);
         });
+        
+        // When a child is removed, refresh the list
+        this.petObject.on('child_removed', (snapshot) => {
+            let temp_array = [];
+            this.petObject.orderByChild('firstName').once('value', (snapshot) => {
+                snapshot.forEach((childSnapshot) => {
+                    if (!childSnapshot.val().petActive){
+                        temp_array.push(childSnapshot.val());
+                    }
+                });
+                this.dataSourceHandling(temp_array);
+            });
+                
+        });
+        
+        // When a child is modified, refresh the list
+        this.petObject.on('child_changed', (snapshot) => {
+            let temp_array = [];
+            this.petObject.orderByChild('firstName').once('value', (snapshot) => {
+                snapshot.forEach((childSnapshot) => {
+                    if (!childSnapshot.val().petActive){
+                        temp_array.push(childSnapshot.val());
+                    }
+                });
+                this.dataSourceHandling(temp_array);
+            });
+                
+        });
+        
     }
     
     // Filter engine. It filters firstName, lastName, petName and petID
@@ -136,6 +180,9 @@ export default class ArchiveScreen extends Component {
                     renderRow={(rowData) =>
                           <TouchableOpacity onPress={()=> this.props.navigator.push({screen: 'main.DetailScreen', title: 'Pet Details',
                           passProps:{
+                              objectID: rowData.objectID,
+                              userID: this.state.userID,
+                              
                               petID: rowData.petID,
                               petName: rowData.petName,
                               petType: rowData.petType,
@@ -146,11 +193,14 @@ export default class ArchiveScreen extends Component {
                               petTimeIn: rowData.petTimeIn,
                               petDateOut: rowData.petDateOut,
                               petTimeOut: rowData.petTimeOut,
+                              
                               firstName: rowData.firstName,
                               lastName: rowData.lastName,
                               email: rowData.email,
                               tel: rowData.tel,
-                              address: rowData.address
+                              address: rowData.address,
+                              
+                              pageType: 0
                               }})}>
                           <View style={styles.content_item}>
                               {/** Icon column */}
@@ -214,13 +264,53 @@ export default class ArchiveScreen extends Component {
     // End Methods Section
     // -------------------------
     
-    
+    login(){
+      firebase.auth().signInWithEmailAndPassword(this.state.email,
+         this.state.password).then((user) => {
+         this.setState({isShowLogin: true, userModalVisible: false});
+         console.log("Login user successfully");
+         
+         this.petObject = this.database.ref(user.uid+'/pet_data');
+         this.setState({userID: user.uid});
+         
+         AsyncStorage.setItem('@vus:vue',this.state.email);
+         AsyncStorage.setItem('@vus:vup',this.state.password);
+         
+         this.listeningDataSourceDB();
+      }).catch((err) => {
+         alert(err);
+     })
+    }
+
+    checkUser(){
+      try {
+         AsyncStorage.getItem('@vus:vue').then((email) => {
+             AsyncStorage.getItem('@vus:vup').then((password) => {
+                 if (email !== null && password !== null){
+                     this.setState({email: email, password: password});
+                     this.login();
+                     console.log("Logged in");
+                 }
+                 else {
+                    this.setState({userModalVisible: true});
+                    // References to firebase
+                    this.petObject = this.database.ref('TEMP');
+                 }
+         });});
+      }
+      catch (err) {
+         this.setState({userModalVisible: true});
+         // References to firebase
+         this.petObject = this.database.ref('TEMP');
+      }
+      
+    }
+
     // -------------------------
     // Component Section
     // -------------------------
     componentDidMount(){
-        this.listeningDataSourceDB();
-        //this.setState({loadingSource: 0});
+        this.checkUser();
     }
 
     shouldComponentUpdate(nextProps, nextState){
@@ -234,37 +324,51 @@ export default class ArchiveScreen extends Component {
     // End Component Section
     // -------------------------
     
+
+  onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
+    if (event.type == 'NavBarButtonPress') { // this is the event type for button presses
+      if (event.id == 'refresh') { // this is the same id field from the static navigatorButtons definition
+        this.setState({loadingSource: 0});
+        this.listeningDataSourceDB();
+      }
+    }
+  }
+  
     
     // -------------------------
     // Render screen components
     // -------------------------
     render() {
-/*     if (this.state.searchKey && this.state.searchKey.length>0){
-    } */
     
     return (
-        <View style={{marginTop: 5, marginBottom: 50, flex: 1, justifyContent: 'space-between'}}>
-            {/** Render search bar */}
-            <View style={{flexDirection: 'row', alignItems: 'center', flex:1}}>
-                <View style={{flex: 12}}>
-                    <TextInput style={styles.textInput} onChangeText={(text) => {this.setState({searchKey: text}); this.searchDataSourceDB(this.state.searchKey)}}
-                     placeholder='Search' underlineColorAndroid='#ff0000'/>{/** Android exclusive */}
+        <View style={styles.rootBackgroundColor}>
+            <View style={{marginTop: 5, marginBottom: 50, flex: 1, justifyContent: 'space-between'}}>
+                {/** Render search bar */}
+                <View style={{flexDirection: 'row', alignItems: 'center', flex:1}}>
+                    <View style={{flex: 12}}>
+                        <TextInput style={styles.textInput} onChangeText={(text) => {this.setState({searchKey: text}); this.searchDataSourceDB(this.state.searchKey)}}
+                         placeholder='Search' underlineColorAndroid='#ff0000'/>{/** Android exclusive */}
+                    </View>
+                    {/** Temporarily set flex:2 for testing*/}
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                        {/** Temporary used for initialising starter data in firebase */}
+                        <TouchableOpacity onPress={() => this.searchDataSourceDB(this.state.searchKey)}><Image style={{width:20,height:20}} source={require('./img/search.png')}/></TouchableOpacity>
+                    </View>
                 </View>
-                {/** Temporarily set flex:2 for testing*/}
-                <View style={{flex: 1, flexDirection: 'row'}}>
-                    {/** Temporary used for initialising starter data in firebase */}
-                    <TouchableOpacity onPress={() => this.searchDataSourceDB(this.state.searchKey)}><Image style={{width:20,height:20}} source={require('./img/search.png')}/></TouchableOpacity>
-                </View>
+                {/** Render item list or empty message */}
+                {this.sourceChecker()}
+                
             </View>
-            {/** Render item list or empty message */}
-            {this.sourceChecker()}
-            
         </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  rootBackgroundColor:{
+    flex: 1,
+    backgroundColor: 'white'
+  },
   textInput:{
     marginTop: 1,
     marginBottom: 1,

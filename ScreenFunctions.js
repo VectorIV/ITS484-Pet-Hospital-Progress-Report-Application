@@ -7,6 +7,8 @@ import ArchiveScreen from './ArchiveScreen.js';
 import UserScreen from './UserScreen.js';
 import AddScreen from './AddScreen.js';
 import ReportScreen from './ReportScreen.js';
+import AddReportScreen from './AddReportScreen.js';
+import WelcomeModal from './WelcomeModal.js';
 
 // register all screens of the app (including internal ones)
 export function registerScreens() {
@@ -16,4 +18,6 @@ export function registerScreens() {
   Navigation.registerComponent('main.UserScreen', () => UserScreen);
   Navigation.registerComponent('main.AddScreen', () => AddScreen);
   Navigation.registerComponent('main.ReportScreen', () => ReportScreen);
+  Navigation.registerComponent('main.AddReportScreen', () => AddReportScreen);
+  Navigation.registerComponent('main.WelcomeModal', () => WelcomeModal);
 }
