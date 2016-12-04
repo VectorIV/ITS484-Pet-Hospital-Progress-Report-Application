@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 
 import DialogBox from 'react-native-dialogbox';
+import moment from 'moment';
 
 import * as firebase from 'firebase';
 
@@ -233,8 +234,10 @@ export default class DetailScreen extends Component {
             ok: {
                 text: 'Confirm',
                 callback: () => {
+                    let currentDate = moment(new Date()).format('DD/MM/YYYY');
+                    let currentTime = moment(new Date()).format('HH:mm:ss')
                     this.petObject = this.database.ref(this.props.userID+'/pet_data/'+this.props.objectID);
-                    this.petObject.update({petActive: false});
+                    this.petObject.update({petActive: false, petDateOut: currentDate, petTimeOut: currentTime});
                     this.props.navigator.pop();}
             },
             cancel: {text: 'Cancel'}
@@ -275,26 +278,23 @@ export default class DetailScreen extends Component {
                     </TouchableOpacity>
                     {this.props.pageType? this.renderArchiveButton():null}
                 </View>
-                <View style={{margin:5, flex: 2, flexDirection: 'column'}}>
-                    <View style={{flex: 2}}>
+                <View style={{margin:0, flex: 2, flexDirection: 'column'}}>
+                    <View style={{flex: 1}}>
                         <Text style={styles.content_text}>HN: {this.props.petID}</Text>
                         <Text style={styles.content_text}>Admission Date: {this.props.petDateIn? this.props.petDateIn:' - / - / - '} {this.props.petTimeIn? this.props.petTimeIn:' - : - : - '}</Text>
                         {this.exitDeterminer(this.props.petDateOut, this.props.petTimeOut)}
-                    </View>
-                    <View style={{flex: 5}}>
+
                         <View style={styles.content_seperator}/>
                         <Text style={styles.content_text}>Pet Name: {this.props.petName || ' - '}</Text>
-                        <Text style={styles.content_text}>Type: {this.props.petType} {this.props.petOtherString? ('('+this.props.petOtherString+')'):''}</Text>
-                        <Text style={styles.content_text}>Gender: {this.props.petGender}</Text>
+                        <Text style={styles.content_text}>Gender: {this.props.petGender}  Type: {this.props.petType} {this.props.petOtherString? ('('+this.props.petOtherString+')'):''}</Text>
                         <Text style={styles.content_text}>Date of Birth: {this.props.petDOB? this.props.petDOB:' - '}</Text>
-                    </View>
-                    <View style={{flex: 7}}>
+
                         <View style={styles.content_seperator}/>
-                        <View style={{flex: 1}}><Text style={styles.content_text}>First Name: {this.props.firstName}</Text></View>
-                        <View style={{flex: 1}}><Text style={styles.content_text}>Last Name: {this.props.lastName}</Text></View>
-                        <View style={{flex: 2}}><Text style={styles.content_text}>Address: {this.props.address? this.props.address:' - '}</Text></View>
-                        <View style={{flex: 1}}><Text style={styles.content_text}>Telephone: {this.props.tel}</Text></View>
-                        <View style={{flex: 1}}><Text style={styles.content_text}>Email: {this.props.email}</Text></View>
+                        <Text style={styles.content_text}>First Name: {this.props.firstName}</Text>
+                        <Text style={styles.content_text}>Last Name: {this.props.lastName}</Text>
+                        <Text style={styles.content_text}>Address: {this.props.address? this.props.address:' - '}</Text>
+                        <Text style={styles.content_text}>Telephone: {this.props.tel}</Text>
+                        <Text style={styles.content_text}>Email: {this.props.email}</Text>
                     </View>
                 </View>
             </View>

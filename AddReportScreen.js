@@ -15,6 +15,7 @@ import {
   Image,
 } from 'react-native';
 
+import DialogBox from 'react-native-dialogbox';
 import { SegmentedControls } from 'react-native-radio-buttons';
 import moment from 'moment';
 
@@ -54,24 +55,35 @@ export default class AddReportScreen extends Component {
     // Methods Section
     // -------------------------
     
-    pinData(){
-        let currentDate = moment(new Date()).format('DD/MM/YYYY');
-        let currentTime = moment(new Date()).format('HH:mm:ss')
-        let keyID = this.petObject.push().getKey();
-        this.petObject = this.database.ref(this.props.userID+'/pet_data/'+this.props.objectID+'/rep_data/'+keyID);
-        this.petObject.set({
-            objectID: keyID,
-            
-            //repID: this.state.repID,
-            repSymptom: this.state.repSymptom,
-            repDiagnosis: this.state.repDiagnosis,
-            repTreatment: this.state.repTreatment,
-            repRemark: this.state.repRemark,
-            repType: this.state.repType,
-            repDate: currentDate,
-            repTime: currentTime,
-            repOrder: currentDate+'-'+currentTime,
-            });
+    pinData(){        
+        this.dialogbox.confirm({
+            content: 'Are you sure that you would like to send this report?',
+            ok: {
+                text: 'Confirm',
+                callback: () => {
+                    let currentDate = moment(new Date()).format('DD/MM/YYYY');
+                    let currentTime = moment(new Date()).format('HH:mm:ss')
+                    let keyID = this.petObject.push().getKey();
+                    this.petObject = this.database.ref(this.props.userID+'/pet_data/'+this.props.objectID+'/rep_data/'+keyID);
+                    this.petObject.set({
+                        objectID: keyID,
+                        
+                        //repID: this.state.repID,
+                        repSymptom: this.state.repSymptom,
+                        repDiagnosis: this.state.repDiagnosis,
+                        repTreatment: this.state.repTreatment,
+                        repRemark: this.state.repRemark,
+                        repType: this.state.repType,
+                        repDate: currentDate,
+                        repTime: currentTime,
+                        repOrder: currentDate+'-'+currentTime,
+                        });
+                   this.props.navigator.pop();
+                }
+            },
+            cancel: {text: 'Cancel'}
+        });
+
     }
     
     renderContactInfo(state){
@@ -168,7 +180,7 @@ export default class AddReportScreen extends Component {
                     
                 <View style={styles.footer}> 
                     <TouchableOpacity style={styles.button}
-                      onPress={() => {this.pinData(); this.props.navigator.pop();}}>
+                      onPress={() => {this.pinData()}}>
                       <Text style={styles.buttonText}>SEND</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button}
@@ -177,6 +189,7 @@ export default class AddReportScreen extends Component {
                     </TouchableOpacity>
                 </View> 
             </View>
+        <DialogBox ref={(dialogbox) => { this.dialogbox = dialogbox }}/>
         </View>
     );
   }

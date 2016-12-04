@@ -52,6 +52,7 @@ export default class AddScreen extends Component {
             petActive: true,
             petDateIn: '',
             petTimeIn: '',
+            petOtherString: '',
         };
     }
     
@@ -66,8 +67,7 @@ export default class AddScreen extends Component {
                        <View style={{flex: 1, marginLeft: 10}}><Text style={styles.title}>Specify:</Text></View>
                        <View style={{flex: 2}}><TextInput style={styles.input}
                        keyboardType='default'
-                       value={this.state.Other}
-                       onChangeText={(Other) => this.setState({Other})}/></View>
+                       onChangeText={(petOtherString) => this.setState({petOtherString})}/></View>
                    </View>
         }
         return <View style={{flex: 6}}/>
@@ -92,6 +92,7 @@ export default class AddScreen extends Component {
             petType: this.state.petType,
             petGender: this.state.petGender,
             petDOB: this.state.petDOB,
+            petOtherString: this.state.petOtherString,
             
             petActive: this.state.petActive,
             petDateIn: currentDate,
