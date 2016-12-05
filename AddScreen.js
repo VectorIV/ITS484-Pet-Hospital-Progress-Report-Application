@@ -164,7 +164,7 @@ export default class AddScreen extends Component {
                 <View style={styles.content_box}>
                   <View style={{flex: 1}}><Text style={styles.title }>Birthdate : </Text></View>
                     <View style={{flex: 4}}><DatePicker style={{width: 150}} date={this.state.petDOB} mode="date" showIcon={false}
-                    placeholder="Select Date" format="DD/MM/YYYY" minDate="01-01-1900" maxDate="01-01-2100" confirmBtnText="Confirm" cancelBtnText="Cancel"
+                    placeholder="Select Date" format="DD/MM/YYYY" minDate="01-01-1900" maxDate={moment(new Date()).format("DD-MM-YYYY")} confirmBtnText="Confirm" cancelBtnText="Cancel"
                     customStyles={{
                       dateInput: {
                         borderColor: 'red',

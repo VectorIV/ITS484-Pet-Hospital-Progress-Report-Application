@@ -79,7 +79,7 @@ export default class ReportScreen extends Component {
                 <View style={styles.content_box}>
                   <View style={{flex: 2}}><Text style={styles.title}>* Treatment:</Text></View>
                   <View style={{flex: 6}}><TextInput style={styles.input}
-                    keyboardType='default' editable={false} value={this.props.repTreament}/>
+                    keyboardType='default' editable={false} value={this.props.repTreatment}/>
                   </View>
                 </View>
                 

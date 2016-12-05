@@ -37,23 +37,11 @@ export default class DetailScreen extends Component {
             rowHasChanged: (r1, r2) => r1 !== r2,
             sectionHeaderHasChanged: (s1, s2) => s1 !== s2});
        
-        const modifiedDataSource = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 !== r2,
-            sectionHeaderHasChanged: (s1, s2) => s1 !== s2});
-            
         this.state = {
             loadingSource: 0,
-            searchKey: '',
-            sort: null,
             dataSource_array: [],
             dataSource: dataSource.cloneWithRowsAndSections({}),
-            modifiedDataSource: modifiedDataSource.cloneWithRowsAndSections({}),
             
-            isShowLogin: true,
-            userModalVisible: false,
-            userID: "Undefined",
-            email: "",
-            password: ""
         };
         
     }
@@ -184,6 +172,28 @@ export default class DetailScreen extends Component {
         }
     }
     
+    pageChecker(){
+        if (this.props.pageType) {
+            return  <View style={{flex: 1, alignItems: 'center'}}>
+                        <TouchableOpacity style={styles.content_button} onPress={() => this.props.navigator.push({screen: 'main.AddReportScreen', title: 'Add Report',
+                        passProps:{
+                              objectID: this.props.objectID,
+                              userID: this.props.userID,
+                               
+                              petID: this.props.petID,
+                              email: this.props.email,
+                              tel: this.props.tel,
+                              }})}>
+                            <Text style={styles.content_button_text}>CREATE</Text>
+                        </TouchableOpacity>
+                    </View>
+                
+                    
+        } else { return <View style={{flex: 1}}><View style={{height: 25}}/></View> 
+        }
+                    
+    }
+    
     // Determine the pet icon
     iconSelector(type) {
         if (type == 'Dog'){
@@ -293,7 +303,10 @@ export default class DetailScreen extends Component {
                         <Text style={styles.content_text}>First Name: {this.props.firstName}</Text>
                         <Text style={styles.content_text}>Last Name: {this.props.lastName}</Text>
                         <Text style={styles.content_text}>Address: {this.props.address? this.props.address:' - '}</Text>
-                        <Text style={styles.content_text}>Telephone: {this.props.tel}</Text>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}><Text style={styles.content_text}>Telephone: {this.props.tel}</Text>
+                            {this.props.pageType? <TouchableOpacity style={styles.call_button}>
+                                <Image style={{width: 10, height: 10}} source={require('./img/call.png')}/>
+                            </TouchableOpacity>:null}</View>
                         <Text style={styles.content_text}>Email: {this.props.email}</Text>
                     </View>
                 </View>
@@ -301,17 +314,7 @@ export default class DetailScreen extends Component {
             <View style={{flex: 1}}><View style={styles.content_seperator}/></View>
             <View style={{flex: 9,justifyContent: 'space-between'}}>
                 {this.sourceChecker()}
-                <View style={{flex: 1, alignItems: 'center'}}><TouchableOpacity style={styles.content_button} onPress={() => this.props.navigator.push({screen: 'main.AddReportScreen', title: 'Add Report',
-                passProps:{
-                      objectID: this.props.objectID,
-                      userID: this.props.userID,
-                       
-                      petID: this.props.petID,
-                      email: this.props.email,
-                      tel: this.props.tel,
-                      }})}>
-                    <Text style={styles.content_button_text}>CREATE</Text>
-                </TouchableOpacity></View>
+                {this.pageChecker()}
             </View>
         </View>
         <DialogBox ref={(dialogbox) => { this.dialogbox = dialogbox }}/>
@@ -380,6 +383,16 @@ const styles = StyleSheet.create({
     marginTop: 1,
     marginBottom: 3,
     fontSize: 12,
+  },
+  call_button:{
+    marginLeft: 10,
+    borderWidth: 1,
+    width: 35,
+    height: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: 'red',
   },
   content_seperator:{
     height:1,

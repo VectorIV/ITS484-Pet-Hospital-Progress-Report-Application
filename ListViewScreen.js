@@ -106,6 +106,7 @@ export default class ListViewScreen extends Component{
     // Listening for data change, and return data whenever there is change
     listeningDataSourceDB(){
         
+        this.petObject = this.database.ref(this.state.userID+'/pet_data');
         let temp_array = [];
         this.dataSourceHandling(temp_array);
 
@@ -305,7 +306,6 @@ export default class ListViewScreen extends Component{
          this.state.password).then((user) => {
          this.setState({isShowLogin: true, userModalVisible: false});
          
-         this.petObject = this.database.ref(user.uid+'/pet_data');
          this.setState({userID: user.uid});
          
          AsyncStorage.setItem('@vus:vue',this.state.email);
@@ -323,7 +323,6 @@ export default class ListViewScreen extends Component{
          this.setState({isShowLogin: true, userModalVisible: false});
          console.log("Login user successfully");
          
-         this.petObject = this.database.ref(user.uid+'/pet_data');
          this.setState({userID: user.uid});
          
          AsyncStorage.setItem('@vus:vue',this.state.email);

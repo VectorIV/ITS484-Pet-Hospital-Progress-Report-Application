@@ -33,6 +33,12 @@ export default class UserScreen extends Component {
         this.database = firebase.database();
         
         this.state = {
+            user: '',
+            tel: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            
             securePass: true,
             isUserEditable: false,
             isInfoEditable: false,

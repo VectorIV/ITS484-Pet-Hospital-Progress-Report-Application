@@ -76,6 +76,7 @@ export default class ArchiveScreen extends Component {
     // Listening for data change, and return data whenever there is change
     listeningDataSourceDB(){
 
+        this.petObject = this.database.ref(this.state.userID+'/pet_data');
         let temp_array = [];
         this.dataSourceHandling(temp_array);
 
@@ -270,7 +271,6 @@ export default class ArchiveScreen extends Component {
          this.setState({isShowLogin: true, userModalVisible: false});
          console.log("Login user successfully");
          
-         this.petObject = this.database.ref(user.uid+'/pet_data');
          this.setState({userID: user.uid});
          
          AsyncStorage.setItem('@vus:vue',this.state.email);
